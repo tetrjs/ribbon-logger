@@ -8,14 +8,12 @@ function listener(details) {
     // Just change any instance of Example in the HTTP response
     // to WebExtension Example.
     // str = str.replace(/Example/g, "WebExtension Example");
-    str = str.replace(
-      "return (unpackr || globalRibbonUnpackr).unpack(packet);",
-      "let catchInLog=((unpackr || globalRibbonUnpackr).unpack(packet)); console.log('in',catchInLog); return catchInLog;"
-    );
-    str = str.replace(
-      "return merged;",
-      "console.log('out', packet); return merged;"
-    );
+    str = str
+      .replace(
+        "return (unpackr || globalRibbonUnpackr).unpack(packet);",
+        "let catchInLog=((unpackr || globalRibbonUnpackr).unpack(packet)); console.log('in',catchInLog); return catchInLog;"
+      )
+      .replace("return merged;", "console.log('out', packet); return merged;");
     filter.write(encoder.encode(str));
     filter.disconnect();
   };
