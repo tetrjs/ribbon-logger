@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Ribbon Logger",
+  "version": "1.0",
+
+  "description": "Logs messages to and from the client for the multiplayer game TETR.IO.",
+
+  "icons": {
+    "213": "icons/tetrio-mono.png"
+  },
+
+  "permissions": ["webRequest", "webRequestBlocking", "*://tetr.io/*"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
